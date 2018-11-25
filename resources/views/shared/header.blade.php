@@ -1,15 +1,15 @@
 <!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
   <a class="navbar-brand text-white" href="#">ProQuest</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link text-white" href="#">Questions<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link text-white" href="#">About</a>
-      <a class="nav-item nav-link text-white" href="#">Contact</a>
-    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class="nav-link"  href="#">Questions</a></li>
+      <li class="nav-item"><a class="nav-link"  href="{{url('about')}}">About</a></li>
+      <li class="nav-item"><a class="nav-link"  href="{{url('contact')}}">Contact</a></li>
+    </ul>
   </div>
 </nav>
 <!-- End of header-->
