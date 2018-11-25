@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="nav navbar-nav">
-      <li class="nav-item"><a class="nav-link"  href="#">Questions</a></li>
+      <li class="nav-item"><a class="nav-link"  href="{{url('questions')}}">Questions</a></li>
       <li class="nav-item"><a class="nav-link"  href="{{url('about')}}">About</a></li>
       <li class="nav-item"><a class="nav-link"  href="{{url('contact')}}">Contact</a></li>
     </ul>
