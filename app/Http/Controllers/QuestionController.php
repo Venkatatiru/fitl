@@ -47,7 +47,11 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo "<pre>";
+        echo $request->title;
+        echo $request->description;
+        echo $request->code;
+        echo "</pre>";
     }
 
     /**
