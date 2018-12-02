@@ -9,6 +9,9 @@
 <body>
     @include('shared.header')
 	 <div class="container">
+     @include('shared.errors')
+     @include('shared.message')
+
      @yield('content')
      </div>
      @include('shared.footer')

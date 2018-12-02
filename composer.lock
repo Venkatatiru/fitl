@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d22a10ef0e9bc3fa61e71aa29b24879",
+    "content-hash": "1561cbaad174823328fc3e5e67325fd0",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -215,6 +215,83 @@
                 "string"
             ],
             "time": "2018-01-09T20:05:19+00:00"
+        },
+        {
+            "name": "esensi/model",
+            "version": "v0.5.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/esensi/model.git",
+                "reference": "ef8241ca88c9df1791278494b54af5457e65645a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/esensi/model/zipball/ef8241ca88c9df1791278494b54af5457e65645a",
+                "reference": "ef8241ca88c9df1791278494b54af5457e65645a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.1.0",
+                "illuminate/database": "~5.1.0",
+                "illuminate/encryption": "~5.1.0",
+                "illuminate/events": "~5.1.0",
+                "illuminate/hashing": "~5.1.0",
+                "illuminate/support": "~5.1.0",
+                "illuminate/validation": "~5.1.0",
+                "nesbot/carbon": "~1.9",
+                "php": ">=5.5.9",
+                "watson/validating": "~1.0.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": "0.9.*",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Esensi\\Model\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emerson Media, LP.",
+                    "email": "wishlist@emersonmedia.com"
+                },
+                {
+                    "name": "Daniel LaBarge",
+                    "email": "daniel@emersonmedia.com"
+                }
+            ],
+            "description": "The base model traits of Esensi",
+            "keywords": [
+                "cast",
+                "casting",
+                "eloquent",
+                "emersonmedia",
+                "encrypting",
+                "esensi",
+                "hashing",
+                "juggling",
+                "laravel",
+                "model",
+                "purge",
+                "purging",
+                "sluggable",
+                "slugs",
+                "soft deleting",
+                "trait",
+                "trashing",
+                "type",
+                "validating",
+                "validation"
+            ],
+            "time": "2016-01-27T18:40:39+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -2068,6 +2145,61 @@
                 "environment"
             ],
             "time": "2015-05-30T15:59:26+00:00"
+        },
+        {
+            "name": "watson/validating",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/validating.git",
+                "reference": "0b225ddc3187745ff9efcbcd0d9b4b712df190ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/validating/zipball/0b225ddc3187745ff9efcbcd0d9b4b712df190ba",
+                "reference": "0b225ddc3187745ff9efcbcd0d9b4b712df190ba",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/database": "5.0.*|5.1.*",
+                "illuminate/events": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "illuminate/validation": "5.0.*|5.1.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Watson\\Validating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwight@studiousapp.com"
+                }
+            ],
+            "description": "Eloquent model validating trait.",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "validation"
+            ],
+            "time": "2015-12-16T23:15:51+00:00"
         }
     ],
     "packages-dev": [
