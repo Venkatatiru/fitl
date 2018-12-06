@@ -94,7 +94,8 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        return view('questions.edit', ['question' => $question]);
     }
 
     /**
@@ -106,7 +107,27 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $question->title = $request->title;
+        $question->description = $request->description;
+        $question->code = $request->code;
+
+        if (!$question->save()) {
+            $errors = $question->getErrors();
+            // Redirect back to the create page
+            // and pass along the errors
+            return redirect()
+               ->action('QuestionController@edit', $question->id)
+               ->with('errors',$errors)
+               ->withInput();
+        }
+
+        //Success
+        return redirect()
+           ->action('QuestionController@index')
+           ->with('message',
+                   '<div class="alert alert-success">Question updated Successfully!</div>');
     }
 
     /**
