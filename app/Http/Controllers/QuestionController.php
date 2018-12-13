@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Question;
+use App\Language;
 
 class QuestionController extends Controller
 {
@@ -36,6 +37,16 @@ class QuestionController extends Controller
         $question =  new Question;
         $data = array();
         $data['question'] = $question;
+        //lists functions splits the data as
+        //<option value="1">JavaScript</option>
+        //<option value="2">PHP</option>
+        $data['languages'] = Language::lists('name','id');
+       
+       /*echo '<pre>';
+       print_r($data['languages']);
+       echo '</pre>';
+       exit;*/
+
         return view('questions.create',$data);
     }
 
@@ -53,6 +64,7 @@ class QuestionController extends Controller
         $question->title = $request->title;
         $question->description = $request->description;
         $question->code = $request->code;
+        $question->languages()->sync($request->language_id);
 
         //create a new question in the database
         if (!$question->save()) {
@@ -95,7 +107,8 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::findOrFail($id);
-        return view('questions.edit', ['question' => $question]);
+        $languages = Language::lists('name','id');
+        return view('questions.edit', ['question' => $question, 'languages' => $languages]);
     }
 
     /**
@@ -112,6 +125,7 @@ class QuestionController extends Controller
         $question->title = $request->title;
         $question->description = $request->description;
         $question->code = $request->code;
+        $question->languages()->sync($request->language_id);
 
         if (!$question->save()) {
             $errors = $question->getErrors();
