@@ -5,6 +5,7 @@
 
 @section('content')
 <div class="page-header">
+  <a href="{{ url('questions/create') }}" class="btn btn-success float-right">+ Question</a>
 	<h1>Programming Questions</h1>
 </div>
 

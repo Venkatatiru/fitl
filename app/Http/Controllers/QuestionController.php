@@ -64,7 +64,7 @@ class QuestionController extends Controller
         $question->title = $request->title;
         $question->description = $request->description;
         $question->code = $request->code;
-        $question->languages()->sync($request->language_id);
+        
 
         //create a new question in the database
         if (!$question->save()) {
@@ -77,6 +77,8 @@ class QuestionController extends Controller
                ->withInput();
         }
 
+
+      $question->languages()->sync($request->language_id);
         //Success
         return redirect()
            ->action('QuestionController@index')
@@ -125,6 +127,11 @@ class QuestionController extends Controller
         $question->title = $request->title;
         $question->description = $request->description;
         $question->code = $request->code;
+
+        /*echo '<pre>';
+       print_r($request->language_id);
+       echo '</pre>';
+       exit;*/
         $question->languages()->sync($request->language_id);
 
         if (!$question->save()) {

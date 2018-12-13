@@ -15,9 +15,9 @@
 
   <div>
     {!! Form::label('language_id[]', 'Programming Languages') !!}
-    {!! Form::select('language_id',
+    {!! Form::select('language_id[]',
                $languages,
-               $question->languages->lists('id'),
+               $question->languages->lists('id')->all(),
                ['multiple' => true, 'class' => 'form-control']
     ) !!}
   </div>
