@@ -4,3 +4,10 @@ $('form.delete-object').submit(function(e){
 
     return deleteConfirmed;
 });
+
+
+$('.edit-object').click(function(e) {
+  var $commentItem = $(this).closest('li');
+  var $commentForm = $commentItem.find('form.edit-object-form');
+   $commentForm.toggleClass('d-none');
+});

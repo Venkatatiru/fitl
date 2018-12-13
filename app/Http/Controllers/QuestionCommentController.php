@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Comment;
+
 class QuestionCommentController extends Controller
 {
     
@@ -19,7 +21,21 @@ class QuestionCommentController extends Controller
      */
     public function store(Request $request, $questionId)
     {
-        //
+        $comment = new Comment;
+
+        $comment->question_id = $questionId;
+        $comment->comment = $request->comment;
+
+        if (!$comment->save()){
+              return redirect()
+                     ->action('QuestionController@show', $questionId)
+                     ->with('errors', $comment->getErrors())
+                     ->withInput();
+        }
+
+        return redirect()
+               ->action('QuestionController@show', $questionId)
+               ->with('message', '<div class="alert alert-success">Comment added!</div>');
     }
 
     /**
@@ -33,6 +49,20 @@ class QuestionCommentController extends Controller
     public function update(Request $request, $questionId, $id)
     {
         //
+        $comment = Comment::findOrFail($id);
+
+        $comment->comment = $request->comment;
+        if (!$comment->save()){
+              return redirect()
+                     ->action('QuestionController@show', $questionId)
+                     ->with('errors', $comment->getErrors())
+                     ->withInput();
+        }
+
+        return redirect()
+               ->action('QuestionController@show', $questionId)
+               ->with('message', '<div class="alert alert-success">Comment Updated!</div>');
+
     }
 
     /**
@@ -44,5 +74,11 @@ class QuestionCommentController extends Controller
     public function destroy($questionId, $id)
     {
         //
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+
+        return redirect()
+               ->action('QuestionController@show', $questionId)
+               ->with('message', '<div class="alert alert-info">Comment Deleted!</div>');
     }
 }
