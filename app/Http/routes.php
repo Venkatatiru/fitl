@@ -37,3 +37,5 @@ Route::get('questions','QuestionController@index');
 // comments route
 Route::resource('questions.comments','QuestionCommentController'
 					,['only' => ['store','update','destroy']]);
+
+Route::resource('languages', 'LanguageController');
