@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     //
+    /*public function questions() {
+    	return $this->belongsToMany('App\Question','questions_languages');
+    }*/
+
     public function questions() {
-    	return $this->belongsToMany('App\Question');
+        return $this->belongsToMany('App\Question','questions_languages');
     }
 }
