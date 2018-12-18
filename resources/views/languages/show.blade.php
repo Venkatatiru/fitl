@@ -1,23 +1,23 @@
-
 @extends('layouts.master')
 
-@section('title','Programming Questions')
+@section('title', $language->name .' Questions')
 
 @section('content')
 
 <div class="Row">
 	
-@include('shared.questions_sidebar')	
+	@include('shared.questions_sidebar')
 
    <div class="col-sm-9">
 
-		<div class="page-header">
-		  <a href="{{ url('questions/create') }}" class="btn btn-success float-right">+ Question</a>
-			<h1>Programming Questions</h1>
+		<div>
+			<a href="{{ url('questions/create') }}" class="btn btn-success float-right">+ Submit Question</a>
+			<h1>{{ $language->name }} Questions</h1>
+
 		</div>
 
 		<div class="list-group">
-		@foreach ($objects as $question)
+		@foreach ($language->questions as $question)
 		   <a href="{{url('questions', [$question->id])}}" class="list-group-item">
 			   <h2 class="list-group-item-heading">{{$question->title}}</h2>
 			   <p class="list-group-item-text">
@@ -27,8 +27,7 @@
 		@endforeach
 		</div>
 
-
-    </div> <!-- col-sm-9 -->
+</div> <!-- col-sm-9 -->
 
 
 

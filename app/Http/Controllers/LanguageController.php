@@ -39,7 +39,24 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $language = new Language;
+        $language->name = $request->name;
+
+        if (!$language->save()) {
+            $errors = $language->getErrors();
+            // Redirect back to the create page
+            // and pass along the errors
+            return redirect()
+               ->route('languages.create')
+               ->with('errors',$errors)
+               ->withInput();
+        }
+
+        return redirect()
+           ->route('languages.index')
+           ->with('message',
+                   '<div class="alert alert-success">New Language created Successfully!</div>');
+
     }
 
     /**
@@ -50,7 +67,8 @@ class LanguageController extends Controller
      */
     public function show($id)
     {
-        //
+        $language = Language::findOrFail($id);
+        return view('languages.show', [ 'language' => $language , 'languages' => Language::all()]);
     }
 
     /**
@@ -69,6 +87,7 @@ class LanguageController extends Controller
         exit;*/
 
         return view('languages.edit', [ 'language' => $language ]);
+        //return view('languages.create', ['language' => new Language]);
     }
 
     /**
@@ -80,7 +99,23 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $language = Language::findOrFail($id);
+        $language->name = $request->name;
+
+        if (!$language->save()) {
+            $errors = $language->getErrors();
+            // Redirect back to the create page
+            // and pass along the errors
+            return redirect()
+               ->route('languages.edit', $language->id)
+               ->with('errors',$errors)
+               ->withInput();
+        }
+
+        return redirect()
+           ->route('languages.index')
+           ->with('message',
+                   '<div class="alert alert-success">Language updated Successfully!</div>');
     }
 
     /**
@@ -91,6 +126,13 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $language = Language::findOrFail($id);
+
+        $language->delete();
+
+        return redirect()
+           ->route('languages.index')
+           ->with('message',
+                   '<div class="alert alert-info">Language deleted Successfully!</div>');
     }
 }

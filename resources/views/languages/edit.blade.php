@@ -9,7 +9,7 @@
   </div>
 
 {!! Form::model($language, 
-	['route' => ['languages.update', $language->$id],
+	['route' => ['languages.update', $language->id],
      'method' => 'put']) !!}
 
    @include('languages.partials.object_form')
@@ -19,4 +19,6 @@
 
 {!! Form::close() !!}
 
-@endsectionEdit
+@include('languages.partials.delete_object')
+
+@endsection
