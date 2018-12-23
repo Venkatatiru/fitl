@@ -28,6 +28,24 @@ class QuestionController extends Controller
         return view('questions.index', $data);
     }
 
+    public function search(Request $request)
+    {
+        $q = $request->q;
+        $q_query = '%'.$q.'%';
+
+        $questions = Question::where('title', 'LIKE', $q_query)
+                             ->orWhere('description', 'LIKE', $q_query)
+                             ->orWhere('code', 'LIKE', $q_query)
+                             ->get();
+        /*echo '<pre>';
+       print_r($questions);
+       echo '</pre>';
+       exit;*/
+
+        return view('questions.search',
+                     ['q' => $q, 'questions' => $questions, 'languages' => Language::all()]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -9,7 +9,11 @@
       <li class="nav-item"><a class="nav-link"  href="{{url('questions')}}">Questions</a></li>
       <li class="nav-item"><a class="nav-link"  href="{{url('about')}}">About</a></li>
       <li class="nav-item"><a class="nav-link"  href="{{url('contact')}}">Contact</a></li>
+      
     </ul>
+     
+     @include('shared.question_search_form')
+
   </div>
 </nav>
 <!-- End of header-->
