@@ -12,6 +12,7 @@
       
     </ul>
      
+     @include('shared.user_actions')
      @include('shared.question_search_form')
 
   </div>

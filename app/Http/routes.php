@@ -13,8 +13,11 @@ if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'QuestionController@index');
+
+
+Route::get('home', function () {
+    return redirect('/');
 });
 
 
@@ -40,3 +43,12 @@ Route::resource('questions.comments','QuestionCommentController'
 					,['only' => ['store','update','destroy']]);
 
 Route::resource('languages', 'LanguageController');
+
+//User Routes
+
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/register','Auth\AuthController@getRegister');
+Route::post('auth/register','Auth\AuthController@postRegister');
